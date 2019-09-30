@@ -55,7 +55,7 @@ const nodesToString = (nodes) => {
             } if (isStringLiteral(expression)) {
                 memo += expression.value;
             } else if (isObjectExpression(expression) && (_get(expression, 'properties[0].type') === 'Property')) {
-                memo += `<${nodeIndex}>{{${expression.properties[0].key.name}}}</${nodeIndex}>`;
+                memo += `{{${expression.properties[0].key.name}}}`;
             } else {
                 console.error(`Unsupported JSX expression. Only static values or {{interpolation}} blocks are supported. Got ${expression.type}:`);
                 console.error(node.expression);
